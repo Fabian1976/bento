@@ -90,6 +90,7 @@
         "../_common/virtualbox.sh",
         "../_common/vmware.sh",
         "../_common/puppet.sh",
+        "../_common/subscription-manager.sh",
         "../centos/scripts/cleanup.sh",
         "../_common/minimize.sh"
       ],
