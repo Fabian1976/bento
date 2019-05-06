@@ -69,7 +69,7 @@
   ],
   "post-processors": [
     {
-      "output": "../builds/{{user `box_basename`}}.{{.Provider}}.box",
+      "output": "../builds/{{user `box_basename`}}.{{.Provider}}.{{user `build_timestamp`}}.box",
       "type": "vagrant"
     }
   ],
@@ -89,6 +89,7 @@
         "../_common/vagrant.sh",
         "../_common/virtualbox.sh",
         "../_common/vmware.sh",
+        "../_common/puppet.sh",
         "../centos/scripts/cleanup.sh",
         "../_common/minimize.sh"
       ],
@@ -98,7 +99,7 @@
   "variables": {
     "arch": "64",
     "box_basename": "rhel-7.6",
-    "build_timestamp": "{{isotime \"20060102150405\"}}",
+    "build_timestamp": "{{isotime \"20060102\"}}",
     "cpus": "1",
     "disk_size": "32768",
     "git_revision": "__unknown_git_revision__",
