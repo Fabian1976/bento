@@ -61,7 +61,6 @@ find /var/log/ -name *.log -exec rm -f {} \;
 # remove previous kernels that yum preserved for rollback
 # yum-utils isn't in RHEL 5 so don't try to run this
 if ! lsb_release -a | grep -qE '^Release:\s*5'; then
-  yum install -y yum-utils
   package-cleanup --oldkernels --count=1 -y
 fi
 

@@ -4,17 +4,14 @@ case "$PACKER_BUILDER_TYPE" in
   qemu) exit 0 ;;
 esac
 
-# Whiteout root
-count=$(df --sync -kP / | tail -n1  | awk -F ' ' '{print $4}')
-count=$(($count-1))
-dd if=/dev/zero of=/tmp/whitespace bs=1M count=$count || echo "dd exit code $? is suppressed";
-rm /tmp/whitespace
-
-# Whiteout /boot
-count=$(df --sync -kP /boot | tail -n1 | awk -F ' ' '{print $4}')
-count=$(($count-1))
-dd if=/dev/zero of=/boot/whitespace bs=1M count=$count || echo "dd exit code $? is suppressed";
-rm /boot/whitespace
+#Whiteout partitions to reduce box size
+partitions='/boot / /tmp /var /var/log /var/log/audit /home'
+for partition in $partitions; do
+    count=$(df --sync -kP ${partition} | tail -n1 | awk -F ' ' '{print $4}')
+    count=$(($count-1))
+    dd if=/dev/zero of=${partition}/whitespace bs=1M count=$count || echo "dd exit code $? is suppressed";
+    rm ${partition}/whitespace
+done
 
 set +e
 swapuuid="`/sbin/blkid -o value -l -s UUID -t TYPE=swap`";
