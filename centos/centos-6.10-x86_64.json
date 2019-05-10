@@ -101,7 +101,7 @@
   "variables": {
     "box_basename": "centos-6.10",
     "build_timestamp": "{{isotime \"20060102\"}}",
-    "cpus": "1",
+    "cpus": "2",
     "disk_size": "32768",
     "git_revision": "__unknown_git_revision__",
     "headless": "",
@@ -112,7 +112,7 @@
     "iso_checksum_type": "sha256",
     "iso_name": "CentOS-6.10-x86_64-minimal.iso",
     "ks_path": "6/ks.cfg",
-    "memory": "1024",
+    "memory": "2048",
     "mirror": "/Users/fabian.vanderhoeven",
     "mirror_directory": "Downloads/Linux/CentOS",
     "name": "centos-6.10",

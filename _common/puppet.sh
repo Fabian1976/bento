@@ -14,3 +14,6 @@ esac
 
 #Install puppet-agent
 yum install -y puppet-agent
+
+#Remove repo
+yum remove -y puppetlabs-release-pc1

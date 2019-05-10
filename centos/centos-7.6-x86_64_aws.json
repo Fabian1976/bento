@@ -90,6 +90,8 @@
         "../_common/vagrant.sh",
         "../_common/virtualbox.sh",
         "../_common/puppet.sh",
+        "../_common/authorized_keys_ec2.sh",
+        "../_common/cloud-init.sh",
         "scripts/cleanup.sh",
         "../_common/minimize.sh"
       ],
@@ -110,7 +112,7 @@
     "iso_checksum": "6d44331cc4f6c506c7bbe9feb8468fad6c51a88ca1393ca6b8b486ea04bec3c1",
     "iso_checksum_type": "sha256",
     "iso_name": "CentOS-7-x86_64-DVD-1810.iso",
-    "ks_path": "7/ks.cfg",
+    "ks_path": "7/ks_aws.cfg",
     "memory": "2048",
     "mirror": "/Users/fabian.vanderhoeven",
     "mirror_directory": "Downloads/Linux/CentOS",

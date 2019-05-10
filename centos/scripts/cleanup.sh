@@ -56,6 +56,7 @@ _EOF_
 fi
 
 # delete any logs that have built up during the install
+systemctl stop rsyslog
 find /var/log/ -name *.log -exec rm -f {} \;
 
 # remove previous kernels that yum preserved for rollback
