@@ -57,6 +57,12 @@ fi
 
 # delete any logs that have built up during the install
 systemctl stop rsyslog
+# delete system logs
+logs="cron dmesg maillog messages secure anaconda/syslog"
+for log in $logs; do
+  rm -f /var/log/${log}
+done
+# delete other logs
 find /var/log/ -name *.log -exec rm -f {} \;
 
 # remove previous kernels that yum preserved for rollback
